@@ -1,0 +1,81 @@
+<form ngForm #formAssignment class="form" (submit)="onSubmit($event); formAssignment.reset();">
+  <mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Nom de l'assignment</ng-template>
+        <mat-form-field>
+          <mat-label>Nom </mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="nom" required/>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="dateFormGroup" errorMessage="Address is required.">
+      <form [formGroup]="dateFormGroup">
+        <ng-template matStepLabel>Date de rendu</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Choisissez une date</mat-label>
+          <input matInput [matDatepicker]="picker" required formControlName="dateDeRendu"/>
+      
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Précedent</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="matiereFormGroup" errorMessage="Name of matter is required.">
+      <form [formGroup]="matiereFormGroup">
+        <ng-template matStepLabel>Matière</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Liste des Matières</mat-label>
+          <mat-select formControlName="matiere">
+            <mat-option *ngFor="let m of matiere" [value]="m._id+ ','+m.prof" >
+              {{m.nom}}
+            </mat-option>   
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <!--<p>Go to a different step to see the error state</p>-->
+          <button mat-button matStepperPrevious>Précedent</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="etudiantFormGroup" errorMessage="Name of matter is required.">
+      <form [formGroup]="etudiantFormGroup">
+        <ng-template matStepLabel>Etudiant</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Nom des étudiants</mat-label>
+          <mat-select formControlName="etudiant">
+            <mat-option *ngFor="let e of etudiant" [value]="e._id" >
+              {{e.nomEtudiant}}
+            </mat-option>   
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <!--<p>Go to a different step to see the error state</p>-->
+          <button mat-button matStepperPrevious>Précedent</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Terminer</ng-template>
+      <p>Vous êtes maintenant prêt à inserer</p>
+      <div>
+        <button class="reset" mat-flat-button color="warn" (click)="stepper.reset()">
+          Réinitialiser
+        </button>
+        <button mat-flat-button color="primary">
+          Ajouter
+        </button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>

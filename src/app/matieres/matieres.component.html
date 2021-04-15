@@ -1,0 +1,19 @@
+<main class="container">
+    <a routerLink="/add" class="ajouterBtn">
+      <button mat-flat-button color="accent">
+        Ajouter une matière
+      </button>
+    </a>
+    <h1>Liste des matieres</h1>
+    <mat-divider></mat-divider>
+    <mat-list *ngFor="let a of matiere">
+      <nav>
+        <a routerLink="/assignment/{{a.id}}">
+          <h3 mat-subheader>{{a.nom }}</h3>
+          
+        </a>
+      </nav>
+    </mat-list>
+   
+  </main>
+  
