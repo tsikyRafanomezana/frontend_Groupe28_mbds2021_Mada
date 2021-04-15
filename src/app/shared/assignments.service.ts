@@ -14,7 +14,7 @@ export class AssignmentsService {
 
   constructor(private loggingService:LoggingService, private http:HttpClient) { }
 
-  //uri = "http://localhost:8010/api/assignments";
+  // uri = "http://localhost:8010/api/assignments";
   // url1 = "http://localhost:8010/api/assignmentsRendu";
   // url2  = "http://localhost:8010/api/assignmentsNonRendu";
   uri = "https://back-groupe28-madagascar-mbds.herokuapp.com/api/assignments";
@@ -130,6 +130,8 @@ export class AssignmentsService {
       nouvelAssignment.id = a.id;
       nouvelAssignment.dateDeRendu = new Date(a.dateDeRendu);
       nouvelAssignment.rendu = a.rendu;
+      //nouvelAssignment.etudiant = a.etudiant.$oid;
+
 
       this.addAssignment(nouvelAssignment)
       .subscribe(reponse => {
@@ -150,6 +152,11 @@ export class AssignmentsService {
       nouvelAssignment.nom = a.nom;
       nouvelAssignment.dateDeRendu = new Date(a.dateDeRendu);
       nouvelAssignment.rendu = a.rendu;
+      /*nouvelAssignment.etudiant = a.etudiant[0].id;
+      nouvelAssignment.matiere = a.matiere[0]._id;
+      nouvelAssignment.prof = a.prof[0]._id;
+      nouvelAssignment.note =a.note;
+      nouvelAssignment.remarque=a.remarque*/
 
       appelsVersAddAssignment.push(this.addAssignment(nouvelAssignment));
     });

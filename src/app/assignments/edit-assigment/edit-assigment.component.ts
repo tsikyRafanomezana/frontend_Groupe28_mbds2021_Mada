@@ -63,6 +63,10 @@ export class EditAssigmentComponent implements OnInit {
     this.assignment.dateDeRendu = this.dateDeRendu;
     this.assignment.prof = this.prof;
     this.assignment.note = this.note;
+    if(this.assignment.note!=0){
+      this.assignment.rendu = true;
+    }
+    else this.assignment.rendu =false;
     this.assignment.remarque =this.remarque;
 
     this.assignmentsService.updateAssignment(this.assignment)

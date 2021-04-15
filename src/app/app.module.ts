@@ -38,9 +38,7 @@ const routes:Routes = [
     // indique que http://localhost:4200 sans rien ou avec un "/" à la fin
     // doit afficher le composant AssignmentsComponent (celui qui affiche la liste)
     path:"",
-    component:UtilisateurComponent
-    //component:AssignmentsComponent
-    //component: UtilisateurComponent
+    component: UtilisateurComponent
   },
   {
     // idem avec  http://localhost:4200/home
@@ -62,7 +60,7 @@ const routes:Routes = [
   },
   {
     path:"matiere",
-    component: MatieresComponent
+    component:MatieresComponent
   }
 ]
 @NgModule({

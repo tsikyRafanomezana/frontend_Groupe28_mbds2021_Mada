@@ -9,16 +9,20 @@
   </button>
   <h1>Liste des assignments</h1>
 
+  
   <mat-tab-group mat-align-tabs="start">
     <mat-tab label="Rendu" >
       <div *ngFor="let a of assignmentsRendu">
           <mat-card class="example-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
+              
+              <div  mat-card-avatar class="example-header-image" style=" background-image: url('https://apimbdsmadagascar.herokuapp.com/images/avatar.jpg');">
+              
+              </div>
               <mat-card-title>{{a.nom}}</mat-card-title>
               <mat-card-subtitle>{{a.dateDeRendu | date}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <img mat-card-image src="{{a.matiere[0].imageMatiere}}" alt="Photo of a Shiba Inu">
             <mat-card-content>
               <h3 mat-subheader>Matière: {{a.matiere[0].nom}}</h3>
               <h4 mat-subheader>Nom de l'étudiant: {{a.etudiant[0].nomEtudiant}}</h4>
@@ -30,17 +34,20 @@
           </mat-card>
           <mat-divider></mat-divider>
       </div>
+      
     </mat-tab>
     
     <mat-tab label=" Non rendu" >
       <div *ngFor="let a of assignmentsNonRendu">
         <mat-card class="example-card">
           <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
+            <div  mat-card-avatar class="example-header-image" style=" background-image: url('https://apimbdsmadagascar.herokuapp.com/images/avatar.jpg');">
+            
+            </div>
             <mat-card-title>{{a.nom}}</mat-card-title>
             <mat-card-subtitle>{{a.dateDeRendu | date}}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <img mat-card-image src="{{a.matiere[0].imageMatiere}}" alt="Photo of a Shiba Inu">
           <mat-card-content>
             <h3 mat-subheader>Matière: {{a.matiere[0].nom}}</h3>
             <h4 mat-subheader>Nom de l'étudiant: {{a.etudiant[0].nomEtudiant}}</h4>
@@ -52,14 +59,15 @@
         </mat-card>
         <mat-divider></mat-divider>
       </div>
+      
     </mat-tab>
   </mat-tab-group>
- 
-</main>
 
-<button mat-flat-button color="primary" [disabled]="!hasPrevPage" (click)="pagePrecedent()">
+  
+</main>
+<button mat-flat-button color="primary"  [disabled]="!hasPrevPage" (click)="pagePrecedent()">
   Précédent
 </button>
-<button mat-flat-button color="primary"[disabled]="!hasNextPage" (click)="pageSuivant()">
+<button mat-flat-button color="primary" [disabled]="!hasNextPage" (click)="pageSuivant()">
   Suivant
 </button>

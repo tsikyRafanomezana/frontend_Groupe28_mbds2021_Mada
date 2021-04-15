@@ -40,15 +40,17 @@ export class AssignmentDetailComponent implements OnInit {
   }
 
   onAssignmentRendu() {
-    this.assignmentTransmis.rendu = true;
+    //this.assignmentTransmis.rendu = true;
+    this.router.navigate(['/assignment',this.assignmentTransmis._id,'edit']);
+    
 
-    this.assignmentsService
+    /*this.assignmentsService
       .updateAssignment(this.assignmentTransmis)
       .subscribe((reponse) => {
         console.log(reponse.message);
         // et on navigue vers la page d'accueil qui affiche la liste
         this.router.navigate(['/home']);
-      });
+      });*/
 
     //this.assignmentTransmis = null;
   }

@@ -14,7 +14,7 @@ export class AssignmentsComponent implements OnInit {
   assignmentsRendu:Assignment[];
   assignmentsNonRendu:Assignment[];
   page: number=1;
-  limit: number=10;
+  limit: number=3;
   totalDocs: number;
   totalPages: number;
   hasPrevPage: boolean;
@@ -107,13 +107,16 @@ export class AssignmentsComponent implements OnInit {
   pageSuivant(){
     //if(!this.hasNextPage) return;
     this.page = this.nextPage;
-    this.getListAssignments();
+    this.limit = this.limit;
+    this.getListAssignmentsRendu();
   }
   pagePrecedent(){
     //if(!this.hasPrevPage) return ;
     this.page = this.prevPage;
-    this.getListAssignments();
+    this.limit = this.limit;
+    this.getListAssignmentsRendu();
   }
+  
   
   deconnexion(){
     this.authService.logOut();
