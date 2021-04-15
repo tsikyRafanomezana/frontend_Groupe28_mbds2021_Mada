@@ -10,7 +10,7 @@ export class UtilisateurService {
 
   constructor(private http: HttpClient) { }
 
-  uri = "http://localhost:8010/api/testerLogin";
+  uri = "https://back-groupe28-madagascar-mbds.herokuapp.com/api/testerLogin";
 
   getUtilisateur():Observable<Utilisateur> {
     console.log("Tester login.....");

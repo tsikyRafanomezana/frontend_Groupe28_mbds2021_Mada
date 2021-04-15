@@ -14,10 +14,12 @@ export class AssignmentsService {
 
   constructor(private loggingService:LoggingService, private http:HttpClient) { }
 
-  uri = "http://localhost:8010/api/assignments";
-  url1 = "http://localhost:8010/api/assignmentsRendu";
-  url2  = "http://localhost:8010/api/assignmentsNonRendu";
-  //uri = "https://back-groupe28-madagascar-mbds.herokuapp.com/api/assignments";
+  //uri = "http://localhost:8010/api/assignments";
+  // url1 = "http://localhost:8010/api/assignmentsRendu";
+  // url2  = "http://localhost:8010/api/assignmentsNonRendu";
+  uri = "https://back-groupe28-madagascar-mbds.herokuapp.com/api/assignments";
+  url1 = "https://back-groupe28-madagascar-mbds.herokuapp.com/api/assignmentsRendu";
+  url2 = "https://back-groupe28-madagascar-mbds.herokuapp.com/api/assignmentsNonRendu";
 
   getAssignments():Observable<Assignment[]> {
     console.log("Dans le service de gestion des assignments...")

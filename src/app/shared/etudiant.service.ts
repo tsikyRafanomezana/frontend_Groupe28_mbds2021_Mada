@@ -10,7 +10,7 @@ export class EtudiantService {
 
   constructor(private http:HttpClient) { }
 
-  uri = "http://localhost:8010/api/etudiants";
+  uri = "https://back-groupe28-madagascar-mbds.herokuapp.com/api/etudiants";
 
   getEtudiants():Observable<Etudiant[]> {
     console.log("Dans le service de gestion des matières...")

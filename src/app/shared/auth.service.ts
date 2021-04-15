@@ -11,8 +11,8 @@ export class AuthService {
   admin = false;
   
   constructor(private http:HttpClient,@Inject(LOCAL_STORAGE) private storage: StorageService) {}
-  //uri = "https://apinodetsirytoky.herokuapp.com/api/utilisateur";
-  uri = "http://localhost:8010/api/utilisateur/login";
+
+  uri = "https://back-groupe28-madagascar-mbds.herokuapp.com/api/utilisateur/login";
 
   logIn(pseudo, mdp) {
     // typiquement, acceptera en paramètres un login et un password
